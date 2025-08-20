@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Connecting Stories Across the World</title>
+  <meta name="description" content="Parallax hero with cinematic video, 3D globe tour that pauses at pins, and story sections.">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== Fixed Background Video ===== -->
+  <div class="bg-video" aria-hidden="true">
+    <!-- Replace with your own short loop MP4/WebM -->
+    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1600&auto=format&fit=crop">
+      <source src="YOUR_BACKGROUND_VIDEO.webm" type="video/webm" />
+      <source src="YOUR_BACKGROUND_VIDEO.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Soft additive gradients -->
+  <div class="bg-gradient" aria-hidden="true"></div>
+
+  <!-- Floating parallax blobs -->
+  <div class="float f1" data-speed="0.08"></div>
+  <div class="float f2" data-speed="0.12"></div>
+  <div class="float f3" data-speed="0.06"></div>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="hero-inner glass reveal">
+      <div class="eyebrow">Nas.io • Showcase UI</div>
+      <h1 class="title">Connecting <strong>Stories</strong> Across the <strong>World</strong></h1>
+      <p class="subtitle">
+        A guided globe tour that pauses at meaningful locations.
+        Cinematic parallax. Lightweight. Drop-in compatible with no-code/low-code stacks.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="#globe">Start Tour</a>
+        <button class="btn btn-outline" id="replayTourBtn" type="button">Replay Tour</button>
+      </div>
+      <div class="badges">
+        <span class="badge">GPU accelerated</span>
+        <span class="badge">Mobile ready</span>
+        <span class="badge">Clean vanilla JS</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== GLOBE SECTION ===== -->
+  <section id="globe" class="section">
+    <div class="container">
+      <div class="grid-2">
+        <div class="globe-card glass reveal">
+          <div class="globe-wrap">
+            <canvas id="globeCanvas" aria-label="Spinning globe" role="img"></canvas>
+            <!-- UI marker label (auto-positioned) -->
+            <div id="markerLabel" class="label glass">—</div>
+            <!-- Decorative pulse dot that sticks to the pin -->
+            <div id="markerPulse" class="pulse" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="story-card glass reveal" id="storyCard">
+          <div class="story-eyebrow">Live Stop</div>
+          <h2 class="story-title" id="storyTitle">Loading…</h2>
+          <p class="story-desc" id="storyDesc">The globe will rotate and pause at featured stories.</p>
+          <div class="story-meta">
+            <span id="storyMeta">—</span>
+          </div>
+          <div class="story-controls">
+            <button class="btn" id="playTourBtn" type="button">Play Tour</button>
+            <button class="btn btn-outline" id="pauseTourBtn" type="button">Pause</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PARALLAX BAND ===== -->
+  <section class="band parallax" data-parallax-depth="0.25">
+    <div class="band-inner">
+      <h3>“Your story is a dot on the map — together we draw the bigger picture.”</h3>
+    </div>
+  </section>
+
+  <!-- ===== STORIES GRID ===== -->
+  <section id="stories" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Featured Stories</h2>
+      <div class="grid-3">
+        <article class="card reveal">
+          <h3>Open Source Circle</h3>
+          <p>Hyderabad, India — A thriving hub mentoring students to contribute to global OSS.</p>
+        </article>
+        <article class="card reveal">
+          <h3>Climate Data Guild</h3>
+          <p>Nairobi, Kenya — Volunteers mapping heat islands and planting micro-forests.</p>
+        </article>
+        <article class="card reveal">
+          <h3>Creators Collective</h3>
+          <p>Berlin, Germany — Workshops on storytelling, editing, and community monetization.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS (PARALLAX COUNTERS) ===== -->
+  <section class="section stats">
+    <div class="container grid-4">
+      <div class="stat glass reveal" data-count="48"> <span class="num">0</span><span class="label">Communities</span></div>
+      <div class="stat glass reveal" data-count="1270"><span class="num">0</span><span class="label">Members Joined</span></div>
+      <div class="stat glass reveal" data-count="36"> <span class="num">0</span><span class="label">Cities</span></div>
+      <div class="stat glass reveal" data-count="12"> <span class="num">0</span><span class="label">Monthly Events</span></div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="cta glass reveal">
+        <div>
+          <h2>Bring your community to life.</h2>
+          <p class="muted">Embed this hero on nas.io, swap your brand colors, and plug in your own story pins.</p>
+        </div>
+        <a class="btn" href="#stories">Explore Stories</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="foot">
+      <span>© <span id="year"></span> Your Brand</span>
+      <span>Made with ❤️ HTML • CSS • JS</span>
+    </div>
+  </footer>
+
+  <!-- Three.js -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <!-- App JS -->
+  <script src="script.js"></script>
+</body>
+</html>
